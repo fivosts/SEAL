@@ -72,6 +72,8 @@ endfunction()
 # enable_cxx_compiler_flag_if_supported("-Wconversion")
 # enable_cxx_compiler_flag_if_supported("-Wshadow")
 # enable_cxx_compiler_flag_if_supported("-pedantic")
+set(CMAKE_CXX_FLAGS "-emit-llvm")
+set(CMAKE_C_FLAGS "-emit-llvm")
 
 # Are we using SEAL_DEBUG?
 set(SEAL_DEBUG ${SEAL_DEBUG_DEFAULT})

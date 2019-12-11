@@ -7,6 +7,8 @@ project(SEALTest LANGUAGES CXX)
 
 # Executable will be in ../bin
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${SEALTest_SOURCE_DIR}/../bin)
+set(CMAKE_CXX_FLAGS "-emit-llvm")
+set(CMAKE_C_FLAGS "-emit-llvm")
 
 add_executable(sealtest seal/testrunner.cpp)
 
