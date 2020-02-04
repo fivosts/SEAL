@@ -67,7 +67,7 @@ def analyze_results():
 
 	print("From {} mutations: ".format(seal_num + util_num))
 
-iterate_folder("/seal", "Encryptor")
-iterate_folder("/seal/util", "Encryptor")
+#iterate_folder("/seal", "Encryptor")
+#iterate_folder("/seal/util", "Encryptor")
 iterate_folder("/seal", "BigUnsignedInt")
 iterate_folder("/seal/util", "BigUnsignedInt")

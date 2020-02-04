@@ -1,0 +1,41 @@
+Note: Google Test filter = Encryptor*
+[==========] Running 162 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 162 tests from EncryptorTest
+[ RUN      ] EncryptorTest.t0
+[       OK ] EncryptorTest.t0 (0 ms)
+[ RUN      ] EncryptorTest.t1
+[       OK ] EncryptorTest.t1 (1 ms)
+[ RUN      ] EncryptorTest.t2
+[       OK ] EncryptorTest.t2 (0 ms)
+[ RUN      ] EncryptorTest.t3
+[       OK ] EncryptorTest.t3 (0 ms)
+[ RUN      ] EncryptorTest.t4
+[       OK ] EncryptorTest.t4 (1 ms)
+[ RUN      ] EncryptorTest.t5
+[       OK ] EncryptorTest.t5 (0 ms)
+[ RUN      ] EncryptorTest.t6
+[       OK ] EncryptorTest.t6 (1 ms)
+[ RUN      ] EncryptorTest.t7
+[       OK ] EncryptorTest.t7 (0 ms)
+[ RUN      ] EncryptorTest.t8
+[       OK ] EncryptorTest.t8 (1 ms)
+[ RUN      ] EncryptorTest.t9
+[       OK ] EncryptorTest.t9 (0 ms)
+[ RUN      ] EncryptorTest.t10
+[       OK ] EncryptorTest.t10 (0 ms)
+[ RUN      ] EncryptorTest.t11
+[       OK ] EncryptorTest.t11 (0 ms)
+[ RUN      ] EncryptorTest.t12
+[       OK ] EncryptorTest.t12 (0 ms)
+[ RUN      ] EncryptorTest.t13
+[       OK ] EncryptorTest.t13 (1 ms)
+[ RUN      ] EncryptorTest.t156
+[       OK ] EncryptorTest.t156 (0 ms)
+[ RUN      ] EncryptorTest.t157
+[       OK ] EncryptorTest.t157 (1 ms)
+[ RUN      ] EncryptorTest.t14
+[       OK ] EncryptorTest.t14 (0 ms)
+[ RUN      ] EncryptorTest.t15
+[       OK ] EncryptorTest.t15 (1 ms)
+[ RUN      ] EncryptorTest.t16
