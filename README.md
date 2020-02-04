@@ -241,6 +241,7 @@ To build with Clang/LLVM and bytecode file, add the following flags to cmake con
 -DCMAKE_CXX_COMPILER=<path_to_clang++>/clang++
 -DCMAKE_LINKER=<path_to_llvm_linker>/ld.lld
 -DCMAKE_AR=<path_to_archiver>/llvm-ar
+-DCMAKE_RANLIB=<path_to_ranlib>/llvm-ranlib
 ````
 
 ### Linking with Microsoft SEAL through CMake
