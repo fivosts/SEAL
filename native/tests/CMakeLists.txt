@@ -33,6 +33,7 @@ endif()
 
 if(LLVM)
     target_compile_options(sealtest PUBLIC "-emit-llvm")
+endif()
 
 add_subdirectory(${GTEST_DIR})
 
