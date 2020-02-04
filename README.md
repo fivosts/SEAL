@@ -234,6 +234,14 @@ make
 make install
 cd ../..
 ````
+To build with Clang/LLVM and bytecode file, add the following flags to cmake configuration:
+````
+-DLLVM=ON # Activate -emit-llvm flag
+-DCMAKE_C_COMPILER=<path_to_clang>/clang
+-DCMAKE_CXX_COMPILER=<path_to_clang++>/clang++
+-DCMAKE_LINKER=<path_to_llvm_linker>/ld.lld
+-DCMAKE_AR=<path_to_archiver>/llvm-ar
+````
 
 ### Linking with Microsoft SEAL through CMake
 
