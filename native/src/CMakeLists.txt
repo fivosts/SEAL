@@ -72,7 +72,6 @@ endfunction()
 # enable_cxx_compiler_flag_if_supported("-Wconversion")
 # enable_cxx_compiler_flag_if_supported("-Wshadow")
 # enable_cxx_compiler_flag_if_supported("-pedantic")
-set(CMAKE_CXX_FLAGS "-emit-llvm")
 
 # Are we using SEAL_DEBUG?
 set(SEAL_DEBUG ${SEAL_DEBUG_DEFAULT})
@@ -81,6 +80,7 @@ message(STATUS "Microsoft SEAL debug mode: ${SEAL_DEBUG}")
 # Should we use C++14 or C++17?
 set(SEAL_USE_CXX17_OPTION_STR "Use C++17")
 option(SEAL_USE_CXX17 ${SEAL_USE_CXX17_OPTION_STR} ON)
+option(LLVM "Compile to LLVM bytecode" OFF)
 
 # Conditionally enable features from C++17
 set(SEAL_USE_STD_BYTE OFF)
@@ -375,6 +375,10 @@ if(SEAL_USE_CXX17)
     target_compile_features(seal PUBLIC cxx_std_17)
 else()
     target_compile_features(seal PUBLIC cxx_std_14)
+endif()
+
+if(LLVM)
+    target_compile_options(seal PUBLIC "-emit-llvm")
 endif()
 
 # Require thread library
