@@ -1356,8 +1356,8 @@ namespace SEALTest
 
     TEST(BigUnsignedInt, t191)
     {
-        BigUInt uint2("123");
-        BigUInt uint("123");
+        BigUInt uint2("99");
+        BigUInt uint("98");
         uint = uint2;
         ASSERT_EQ(static_cast<uint64_t>(0), uint.data()[1]);
     }
@@ -1482,7 +1482,7 @@ namespace SEALTest
 
     TEST(BigUnsignedInt, t207)
     {
-        BigUInt uint("123");
+        BigUInt uint("23");
         uint.resize(8);
         ASSERT_TRUE("23" == uint.to_string());
     }
@@ -1507,7 +1507,7 @@ namespace SEALTest
 
     TEST(BigUnsignedInt, t210)
     {
-        BigUInt uint("123");
+        BigUInt uint("23");
         uint.resize(8);
 
         uint.resize(100);
