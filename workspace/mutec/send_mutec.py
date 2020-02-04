@@ -48,6 +48,7 @@ def execute_command(str_command):
 		process = subprocess.Popen(str_command.split(), stdout=subprocess.PIPE)
 		output, error = process.communicate(timeout = 10)
 	except subprocess.TimeoutExpired:
+		process.kill()
 		return ""
 	out = output.decode("utf-8")
 	print(out)
