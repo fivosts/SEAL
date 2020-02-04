@@ -7,12 +7,12 @@ MUTEC_REPO= "/home/fivosts/Repos/SEAL/workspace/mutec"
 SRC_REPO = "/home/fivosts/Repos/SEAL/native/src/"
 
 
-def iterate_folder(folder_name):
+def iterate_folder(folder_name, module_name):
 
 	for file in os.listdir(MUTEC_REPO + folder_name):
 		if not os.path.isdir(MUTEC_REPO + folder_name + "/" + file):
 			move_file(MUTEC_REPO + folder_name + "/" + file, SRC_REPO + folder_name + "/" + file.split('.')[0] + ".cpp")
-			compile_and_run(MUTEC_REPO + "/results" + folder_name + "/" + file + ".log")
+			compile_and_run(MUTEC_REPO + "/results/{}".format(module_name) + folder_name + "/" + file + ".txt", module_name)
 
 	return
 
@@ -22,18 +22,20 @@ def move_file(target, destination):
 	return
 
 
-def compile_and_run(output_name):
+def compile_and_run(output_name, module_name):
 
-	os.chdir(MUTEC_REPO + "/build")
+	os.chdir(SRC_REPO + "/build")
 	execute_command("make")
 	execute_command("make install")
 	os.chdir("/home/fivosts/Repos/SEAL/native/tests/build")
 	execute_command("make")
-	outstr = execute_command("/home/fivosts/Repos/SEAL/native/bin/sealtest --gtest_filter=Encryptor*")
-	outf = open(output_name, 'w')
-	for line in outstr:
-		outf.write(line)
-	outf.close()
+	outstr = execute_command("/home/fivosts/Repos/SEAL/native/bin/sealtest --gtest_filter={}*".format(module_name))
+	
+	if outstr != "":
+		outf = open(output_name, 'w')
+		for line in outstr:
+			outf.write(line)
+		outf.close()
 
 	os.chdir(SRC_REPO + "/seal/")
 	execute_command("git checkout " + SRC_REPO + "/seal/*")
@@ -65,5 +67,7 @@ def analyze_results():
 
 	print("From {} mutations: ".format(seal_num + util_num))
 
-# iterate_folder("/seal")
-iterate_folder("/seal/util")
+iterate_folder("/seal", "Encryptor")
+iterate_folder("/seal/util", "Encryptor")
+iterate_folder("/seal", "BigUnsignedInt")
+iterate_folder("/seal/util", "BigUnsignedInt")
