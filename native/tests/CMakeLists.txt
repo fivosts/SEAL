@@ -7,6 +7,7 @@ project(SEALTest LANGUAGES CXX)
 
 # Executable will be in ../bin
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${SEALTest_SOURCE_DIR}/../bin)
+option(LLVM "Compile to LLVM bytecode" OFF)
 
 add_executable(sealtest seal/testrunner.cpp)
 
@@ -29,6 +30,9 @@ set(GTEST_DIR ${SEALTest_SOURCE_DIR}/thirdparty/googletest)
 if(NOT EXISTS ${GTEST_DIR}/CMakeLists.txt)
     message(FATAL_ERROR "Could not find `${GTEST_DIR}/CMakeLists.txt`. Run `git submodule update --init` and retry.")
 endif()
+
+if(LLVM)
+    target_compile_options(sealtest PUBLIC "-emit-llvm")
 
 add_subdirectory(${GTEST_DIR})
 
