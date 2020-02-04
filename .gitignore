@@ -16,7 +16,9 @@ native/src/seal/util/config.h
 .local_vimrc
 **/*.code-workspace
 **/.vscode
+*/build/
 */build
+mylib
 **/*.build
 **/compile_commands.json
 **/.DS_Store
