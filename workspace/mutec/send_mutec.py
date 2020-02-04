@@ -3,7 +3,7 @@
 import os
 import subprocess
 
-MUTEC_REPO= "/home/fivosts/Repos/SEAL/native/src/mutec"
+MUTEC_REPO= "/home/fivosts/Repos/SEAL/workspace/mutec"
 SRC_REPO = "/home/fivosts/Repos/SEAL/native/src/"
 
 
@@ -24,7 +24,7 @@ def move_file(target, destination):
 
 def compile_and_run(output_name):
 
-	os.chdir("/home/fivosts/Repos/SEAL/native/src/build")
+	os.chdir(MUTEC_REPO + "/build")
 	execute_command("make")
 	execute_command("make install")
 	os.chdir("/home/fivosts/Repos/SEAL/native/tests/build")
@@ -35,10 +35,10 @@ def compile_and_run(output_name):
 		outf.write(line)
 	outf.close()
 
-	os.chdir("/home/fivosts/Repos/SEAL/native/src/seal/")
-	execute_command("git checkout /home/fivosts/Repos/SEAL/native/src/seal/*")
+	os.chdir(SRC_REPO + "/seal/")
+	execute_command("git checkout " + SRC_REPO + "/seal/*")
 
-	os.chdir("/home/fivosts/Repos/SEAL/native/src/")
+	os.chdir(SRC_REPO)
 
 	return
 
@@ -56,10 +56,10 @@ def execute_command(str_command):
 
 def analyze_results():
 
-	os.chdir("/home/fivosts/Repos/SEAL/native/src/mutec/seal")
+	os.chdir(MUTEC_REPO + "/seal")
 	seal_num = execute_command("ls | wc -l")
 
-	os.chdir("/home/fivosts/Repos/SEAL/native/src/mutec/seal")
+	os.chdir(MUTEC_REPO + "/seal")
 	util_num = execute_command("ls | wc -l")
 
 	print("From {} mutations: ".format(seal_num + util_num))
